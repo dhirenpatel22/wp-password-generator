@@ -3,7 +3,7 @@
  * Plugin Name: Password Generator Tool
  * Plugin URI:  https://www.dhirenpatel.me/
  * Description: A secure, client-side password generator to boost website security features.
- * Version:     1.2
+ * Version:     1.2.1
  * Author:      Dhiren Patel
  * Author URI:  https://www.dhirenpatel.me/
  * License:     GPL-2.0-or-later
@@ -32,21 +32,21 @@ function pgt_shortcode() {
 		'pgt-wordlist',
 		plugins_url( '/assets/js/eff-wordlist.js', __FILE__ ),
 		array(),
-		'1.2',
+		'1.2.1',
 		true
 	);
 	wp_enqueue_script(
 		'pgt-script',
 		plugins_url( '/assets/js/password-generator.js', __FILE__ ),
 		array( 'jquery', 'password-strength-meter', 'pgt-wordlist' ),
-		'1.2',
+		'1.2.1',
 		true
 	);
 	wp_enqueue_style(
 		'pgt-style',
 		plugins_url( '/assets/css/password-generator.css', __FILE__ ),
 		array(),
-		'1.2'
+		'1.2.1'
 	);
 
 	ob_start();
@@ -89,7 +89,7 @@ function pgt_shortcode() {
 		<p class="pgt-note"><em><?php esc_html_e( 'Passwords are generated securely in your browser—no data is sent to the server.', 'password-generator-tool' ); ?></em></p>
 		<?php if ( shortcode_exists( 'wpsr_share_icons' ) ) : ?>
 		<div class="password-generator-share-icons">
-			<h5>Found this useful? Share it with someone who needs it!</h5>
+			<h5><?php esc_html_e( 'Found this useful? Share it with someone who needs it!', 'password-generator-tool' ); ?></h5>
 			<?php echo do_shortcode( '[wpsr_share_icons icons="whatsapp, sms, facebook, x, linkedin, shortlink"]' ); ?>
 		</div>
 		<?php endif; ?>

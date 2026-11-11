@@ -115,6 +115,9 @@
 		if (easySay) charset = charset.replace(/[^a-zA-Z]/g, '');
 		if (easyRead) charset = charset.toLowerCase();
 
+		// Lowercasing can repeat letters (A and a, O and o); keep each character once so every one is equally likely.
+		charset = Array.from(new Set(charset)).join('');
+
 		return charset;
 	}
 
